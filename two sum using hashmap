@@ -1,0 +1,12 @@
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        numMap = {}  # Dictionary to store number -> index
+        n = len(nums)
+
+        for i in range(n):
+            complement = target - nums[i]  # The number we need to find
+            if complement in numMap:
+                return [numMap[complement], i]  # Found the pair
+            numMap[nums[i]] = i  # Store current number and its index
+
+        return []  # If no solution is found
